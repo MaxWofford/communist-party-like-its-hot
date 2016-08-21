@@ -1,5 +1,9 @@
 var starSpeed, maxDepth, stars, starCount;
 
+function preload() {
+  hackClubOutline = loadImage('img/hack-club-outline.png');
+}
+
 function setup() {
   maxDepth = 2000;
   starCount = 1000;
@@ -21,11 +25,25 @@ function windowResized() {
 
 function draw() {
   background(0);
-  starSpeed = (mouseY / height * 29) + 12;
+  starSpeed = (window.scrollY / height * 30) + 15;
 
   for (var i = 0; i < stars.length; i++) {
     stars[i].update();
     stars[i].draw();
+  }
+
+  var logoIterations = Math.ceil(mouseY / (height / 15));
+  for (var x = 0; x < logoIterations; x++) {
+    // tint(255, 100 + 100 / x); // Apply opacity to each layer of logo
+    var scale = (1 + 0.25 * x);
+    var imgWidth = hackClubOutline.width * scale;
+    var imgHeight = hackClubOutline.height * scale;
+    image(hackClubOutline, // p5 image object
+          -(imgWidth/2),   // x-offset
+          -(imgHeight/2),  // y-offset
+          imgWidth,        // image width
+          imgHeight        // image height
+         );
   }
 }
 
