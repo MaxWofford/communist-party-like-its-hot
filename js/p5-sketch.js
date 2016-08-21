@@ -1,4 +1,4 @@
-var starSpeed, maxDepth, stars, starCount;
+var starSpeed, maxDepth, stars, starCount, maxIterations;
 
 function preload() {
   hackClubOutline = loadImage('img/hack-club-outline.png');
@@ -8,6 +8,7 @@ function setup() {
   maxDepth = 2000;
   starCount = 1000;
   maxRadius = 12;
+  maxIterations = 25;
   noStroke();
   windowResized();
 }
@@ -32,10 +33,10 @@ function draw() {
     stars[i].draw();
   }
 
-  var logoIterations = Math.ceil(mouseY / (height / 15)) || 1;
+  // Logo iterations should be the maxIterations when the mouse is at the center of the screen, and decrease when the mouse gets further away;
+  var logoIterations = Math.ceil((height - 2 * Math.abs((height / 2) - mouseY)) / (height / maxIterations)) || 1;
   for (var x = 0; x < logoIterations; x++) {
-    // tint(255, 100 + 100 / x); // Apply opacity to each layer of logo
-    var scale = (1 + 0.25 * x);
+    var scale = (0.5 + 0.1 * x);
     var imgWidth = hackClubOutline.width * scale;
     var imgHeight = hackClubOutline.height * scale;
     image(hackClubOutline, // p5 image object
