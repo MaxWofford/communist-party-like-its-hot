@@ -34,7 +34,7 @@ function draw() {
   }
 
   // Logo iterations should be the maxIterations when the mouse is at the center of the screen, and decrease when the mouse gets further away;
-  var logoIterations = Math.ceil((height - 2 * Math.abs((height / 2) - mouseY)) / (height / maxIterations)) || 1;
+  var logoIterations = Math.max(Math.ceil((height - 2 * Math.abs((height / 2) - mouseY)) / (height / maxIterations)), 1);
   for (var x = 0; x < logoIterations; x++) {
     var scale = (0.5 + 0.1 * x);
     var imgWidth = hackClubOutline.width * scale;
