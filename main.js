@@ -32,7 +32,7 @@ function draw() {
     stars[i].draw();
   }
 
-  var logoIterations = Math.ceil(mouseY / (height / 15));
+  var logoIterations = Math.ceil(mouseY / (height / 15)) || 1;
   for (var x = 0; x < logoIterations; x++) {
     // tint(255, 100 + 100 / x); // Apply opacity to each layer of logo
     var scale = (1 + 0.25 * x);
