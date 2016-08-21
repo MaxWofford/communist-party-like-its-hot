@@ -4,7 +4,6 @@ function setup() {
   maxDepth = 2000;
   starCount = 1000;
   maxRadius = 12;
-  fill(255);
   noStroke();
   windowResized();
 }
@@ -49,6 +48,7 @@ function Star() {
     var sx = map(this.x / this.z, 0, 1, 0, width);
     var sy = map(this.y / this.z, 0, 1, 0, height);
     var r = map(this.z, 0, maxDepth, this.r, 0);
+    fill((this.z / maxDepth * 155) + 100);
     ellipse(sx, sy, r, r);
   };
 
