@@ -1,0 +1,104 @@
+body {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+canvas {
+  overflow: hidden;
+}
+
+.horizon {
+  background: #4644d6;
+  background-image: linear-gradient(to top right, #4644d6, #792b91);
+  // Gradient for dark sky:
+  // #4644d6 - #792b91
+
+  // Basically a combination of the following gifs:
+  // https://media.giphy.com/media/oSYflamt3IEjm/giphy.gif
+  // https://media.giphy.com/media/vOgpALRSTYLvO/giphy.gif
+}
+
+.footer {
+  background: rgb(50, 50, 50);
+  font-family: 'Ubuntu', 'Baloo Paaji', cursive;
+  padding: 3em 0;
+}
+
+.footer a {
+  font-size: 2em;
+  -webkit-filter: blur(1px);
+  filter: blur(1px);
+  color: rgba(255, 255, 255, .5);
+  transition-duration: 2s;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  -webkit-filter: none;
+  filter: none;
+  color: rgb(255, 255, 255);
+  text-shadow: rgba(255, 255, 255, 0.7) 0 0 8px;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.column {
+  padding: 1em;
+}
+
+#sun {
+  width: 85%;
+}
+
+.section {
+  padding: 5em 0;
+  color: #fff;
+  position: relative;
+  z-index: 1;
+  font-size: 2em;
+}
+
+.first, .third {
+  background: #41ade5;
+}
+
+.first.section:after, .third.section:after {
+  transform: skewY(-3deg);
+}
+
+.first.section:before, .third.section:before {
+  transform: skewY(3deg);
+}
+
+.section:before {
+  background: inherit;
+  top: 0;
+  content: '';
+  display: block;
+  height: 50%;
+  left: 0;
+  position: absolute;
+  right: 0;
+  transform-origin: 100%;
+  z-index: -1;
+}
+
+.section:after {
+  background: inherit;
+  bottom: 0;
+  content: '';
+  display: block;
+  height: 50%;
+  left: 0;
+  position: absolute;
+  right: 0;
+  transform-origin: 100%;
+  z-index: -1;
+}
