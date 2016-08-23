@@ -10,10 +10,10 @@ function setup() {
   maxRadius = 12;
   maxIterations = 25;
   noStroke();
-  windowResized();
+  initializeStarfield();
 }
 
-function windowResized() {
+function initializeStarfield() {
   document.querySelector('#starfield').innerHtml = '';
   var canvas = createCanvas(windowWidth, windowHeight);
   canvas.parent('starfield');
@@ -22,6 +22,10 @@ function windowResized() {
   for (var i = 0; i < starCount; i++) {
     stars[i] = new Star();
   }
+}
+
+function windowResized() {
+  initializeStarfield();
 }
 
 function draw() {
