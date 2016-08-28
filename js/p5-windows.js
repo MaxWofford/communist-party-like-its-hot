@@ -62,6 +62,7 @@ var windowsSketch = function(p) {
     var canvas = p.createCanvas(p.windowWidth, p.windowHeight);
     canvas.parent('windows');
     p.frameRate(10);
+    p.background('#008080');
   };
 
   p.windowResized = function() {
