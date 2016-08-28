@@ -3,17 +3,14 @@ var windowsSketch = function(p) {
   var windowsSprites = [];
 
   p.preload = function() {
-    windowSpeed = p.width;
+    windowSpeed = p.windowWidth / 10;
 
     windowsImages = [];
     windowsImages.push(p.loadImage('assets/window-1.png'));
   };
 
   p.setup = function() {
-    document.querySelector('#windows').innerHtml = '';
-    var canvas = p.createCanvas(p.windowWidth, p.windowHeight);
-    canvas.parent('windows');
-    p.frameRate(3);
+    initializeCanvas();
 
     for (var i = 0; i < windowsImages.length; i++) {
       var img = windowsImages[i];
@@ -57,6 +54,17 @@ var windowsSketch = function(p) {
               window.height
              );
     }
+  };
+
+  var initializeCanvas = function() {
+    document.querySelector('#windows').innerHtml = '';
+    var canvas = p.createCanvas(p.windowWidth, p.windowHeight);
+    canvas.parent('windows');
+    p.frameRate(3);
+  }
+
+  p.windowResized = function() {
+    initializeCanvas();
   };
 };
 
