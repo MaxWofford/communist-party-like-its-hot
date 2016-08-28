@@ -35,16 +35,16 @@ var windowsSketch = function(p) {
     for (var i = 0; i < windowsSprites.length; i++) {
       var window = windowsSprites[i];
       if (window.position.x + window.img.width > p.width) {
-        window.velocity.x = -windowSpeed;
+        window.velocity.x = -Math.abs(window.velocity.x);
       }
       if (window.position.x < 0) {
-        window.velocity.x = windowSpeed;
+        window.velocity.x = Math.abs(window.velocity.x);
       }
       if (window.position.y + window.img.height > p.height) {
-        window.velocity.y = -windowSpeed;
+        window.velocity.y = -Math.abs(window.velocity.y);
       }
       if (window.position.y < 0) {
-        window.velocity.y = windowSpeed;
+        window.velocity.y = Math.abs(window.velocity.y);
       }
 
       window.position.x += window.velocity.x;
