@@ -7,6 +7,7 @@ var windowsSketch = function(p) {
 
     windowsImages = [];
     windowsImages.push(p.loadImage('assets/window-1.png'));
+    windowsImages.push(p.loadImage('assets/window-2.png'));
   };
 
   p.setup = function() {
