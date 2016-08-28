@@ -3,7 +3,7 @@ var windowsSketch = function(p) {
   var windowsSprites = [];
 
   p.preload = function() {
-    windowSpeed = p.windowWidth / 10;
+    windowSpeed = p.windowWidth / 40;
 
     windowsImages = [];
     windowsImages.push(p.loadImage('assets/window-1.png'));
@@ -61,8 +61,8 @@ var windowsSketch = function(p) {
     document.querySelector('#windows').innerHtml = '';
     var canvas = p.createCanvas(p.windowWidth, p.windowHeight);
     canvas.parent('windows');
-    p.frameRate(3);
-  }
+    p.frameRate(10);
+  };
 
   p.windowResized = function() {
     initializeCanvas();
