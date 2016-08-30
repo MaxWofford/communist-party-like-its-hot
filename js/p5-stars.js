@@ -1,5 +1,6 @@
 var starSketch = function(p) {
   var starSpeed, maxDepth, stars, starCount, maxIterations, hackClubOutline;
+  var actualIter = 0;
 
   p.preload = function() {
     hackClubOutline = p.loadImage('assets/hack-club-outline.png');
@@ -38,9 +39,18 @@ var starSketch = function(p) {
       stars[i].draw();
     }
 
-    // Logo iterations should be the maxIterations when the mouse is at the center of the screen, and decrease when the mouse gets further away;
-    var logoIterations = Math.max(Math.ceil((p.height - 2 * Math.abs((p.height / 2) - p.mouseY)) / (p.height / maxIterations)), 1);
-    for (var x = 0; x < logoIterations; x++) {
+    // Logo iterations should max out when the mouseY is at the center of the sketch, and decrease when the mouse gets further away;
+    var targetIter = Math.max(Math.ceil((p.height - 2 * Math.abs((p.height / 2) - p.mouseY)) / (p.height / maxIterations)), 1);
+
+    if (targetIter != actualIter) {
+      if (targetIter - actualIter > 0) {
+        actualIter++;
+      } else {
+        actualIter--;
+      }
+    }
+
+    for (var x = 0; x < actualIter; x++) {
       var scale = (0.5 + 0.05 * x * (x * 0.5));
       var imgWidth = hackClubOutline.width * scale;
       var imgHeight = hackClubOutline.height * scale;
