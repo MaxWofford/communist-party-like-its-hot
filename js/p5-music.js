@@ -2,6 +2,7 @@ var musicSketch = function(p) {
   p.preload = function() {
     // starscapeMusic = loadSound('assets/starscapeMusic.mp3');
     // beachMusic = loadSound('assets/beachMusic.mp3');
+    p.noCanvas();
   };
 
   p.setup = function() {
