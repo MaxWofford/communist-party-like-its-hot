@@ -3,27 +3,9 @@ var starSketch = function(p) {
 
   p.preload = function() {
     hackClubOutline = p.loadImage('assets/hack-club-outline.png');
-
-    // starscapeMusic = loadSound('assets/starscapeMusic.mp3'));
-    // beachMusic = loadSound('assets/beachMusic.mp3'));
-  };
-
-  p.transitionSound = function(oldSong, newSong) {
-    for (var i = 0; i < 11; i++) {
-      let x = i;
-      setTimeout(function() {
-        oldSong.setVolume(1 - x / 10);
-        newSong.setVolume(x / 10);
-      }, x * 100);
-    }
   };
 
   p.setup = function() {
-    // starscapeMusic.loop();
-    // starscapeMusic.setVolume(1);
-    // beachMusic.loop();
-    // beachMusic.setVolume(0);
-
     maxDepth = 2000;
     starCount = 1000;
     maxRadius = 12;
