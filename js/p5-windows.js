@@ -3,7 +3,7 @@ var windowsSketch = function(p) {
   var windowsSprites = [];
 
   p.preload = function() {
-    windowSpeed = p.windowWidth / 40;
+    windowSpeed = p.windowWidth / 100;
 
     windowsImages = [];
     windowsImages.push(p.loadImage('assets/window-1.png'));
